@@ -1,0 +1,11 @@
+{% load static %}
+<ul class="tree-menu tree-menu-{{ menu_name|slugify }}">
+  {% for node in menu_tree %}
+    {% include "tree_menu/menu_node.html" with node=node %}
+  {% empty %}
+    <li class="tree-menu__empty">Меню «{{ menu_name }}» не найдено</li>
+  {% endfor %}
+</ul>
+
+
+

@@ -1,0 +1,21 @@
+<li
+  class="tree-menu__item{% if node.is_active %} tree-menu__item--active{% endif %}{% if node.is_open and node.children %} tree-menu__item--open{% endif %}"
+>
+  {% if node.url %}
+    <a href="{{ node.url }}" class="tree-menu__link">{{ node.item.title }}</a>
+  {% else %}
+    <span class="tree-menu__label">{{ node.item.title }}</span>
+  {% endif %}
+  {% if node.children %}
+    {% if node.is_open %}
+      <ul class="tree-menu__children">
+        {% for child in node.children %}
+          {% include "tree_menu/menu_node.html" with node=child only %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+</li>
+
+
+
