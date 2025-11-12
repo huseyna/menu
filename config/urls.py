@@ -32,4 +32,6 @@ urlpatterns = [
     ),
     path('<slug:slug>/', dynamic_page, name='page'),
     path('1/', dynamic_page, name='1'),
+    path('catalog/', dynamic_page, name='catalog'),
+    path('catalog/<slug:slug>/', dynamic_page, name='catalog_item'),
 ]
